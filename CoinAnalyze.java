@@ -36,12 +36,11 @@ public class CoinAnalyze {
 				}
 			}
 		}
-		System.out.println(bestKeys.size() + " Best Trading Volume / Market Cap Ratios:");
-		System.out.println(bestKeys.get(0) + ": " + bestRatios.get(0));
-		System.out.println(bestKeys.get(1) + ": " + bestRatios.get(1));
-		System.out.println(bestKeys.get(2) + ": " + bestRatios.get(2));
-		System.out.println(bestKeys.get(3) + ": " + bestRatios.get(3));
-		System.out.println(bestKeys.get(4) + ": " + bestRatios.get(4));
+		CoinReporter.addLine(" Best Trading Volume / Market Cap Ratios:", bestKeys.get(0).toString() + ": " + bestRatios.get(0).toString().substring(0, 4));
+		CoinReporter.addLine(" Best Trading Volume / Market Cap Ratios:", bestKeys.get(1).toString() + ": " + bestRatios.get(1).toString().substring(0, 4));
+		CoinReporter.addLine(" Best Trading Volume / Market Cap Ratios:", bestKeys.get(2).toString() + ": " + bestRatios.get(2).toString().substring(0, 4));
+		CoinReporter.addLine(" Best Trading Volume / Market Cap Ratios:", bestKeys.get(3).toString() + ": " + bestRatios.get(3).toString().substring(0, 4));
+		CoinReporter.addLine(" Best Trading Volume / Market Cap Ratios:", bestKeys.get(4).toString() + ": " + bestRatios.get(4).toString().substring(0, 4));
 
 		return !bestKeys.isEmpty();
 	}

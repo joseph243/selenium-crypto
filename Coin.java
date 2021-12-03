@@ -15,7 +15,6 @@ public class Coin {
 	static Map<Integer, Asset> assets = new HashMap<Integer, Asset>();
 
 	public static boolean getDataCoinMarketCap() throws Throwable {
-		boolean isPassing = true;
 
 		// action item for keypresses
 		Actions action = new Actions(SeleniumClass.getDriver());
@@ -57,12 +56,8 @@ public class Coin {
 		}
 
 		// verify 100 coins collected and return pass/fail
-		if (assets.size() == 100)
-			isPassing = true;
-		else
-			isPassing = false;
-
-		return isPassing;
+		CoinReporter.addLine("Get Top 100", "Total coins found = " + String.valueOf(assets.size()));
+		return (assets.size() == 100);
 	}
 
 	public static boolean hasCoinbase() throws Throwable {
@@ -87,9 +82,8 @@ public class Coin {
 			searchBar.clear();
 		    searchBar.sendKeys("looking for coins... " + lookedCount + "/" + listSupported.size() + " searched.");
 		}
-		System.out.println(matchCount + "/" + assets.size() + " assets on coinbase.");
-		if (matchCount > 30) return true; // sanity check
-		else return false;
+		CoinReporter.addLine("Has Coinbase" , (matchCount + "/" + assets.size() + " assets on coinbase."));
+		return (matchCount > 40); // sanity check
 	}
 
 }
